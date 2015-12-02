@@ -1,0 +1,8 @@
+<li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+  {{#if isEditing}}
+    {{edit-todo class="edit" value=todo.title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+  {{else}}
+    {{input type="checkbox" class="toggle" checked=isCompleted}}
+    <label {{action "editTodo" on="doubleClick"}}>{{todo.title}}</label><button class="destroy" {{action 'removeTodo'}}></button>
+  {{/if}}
+</li>
